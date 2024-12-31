@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Hero (){
     return(
         <>
-        <div className="container sticky z-0 top-0 mx-auto flex flex-col md:flex-row items-center justify-center  ml-80 mr-80 rounded-md bg-[#F0F2F3]  py-20 px-10">
+        <div className="container  mx-auto flex flex-col md:flex-row items-center justify-center  rounded-md bg-[#F0F2F3]  py-20 px-10">
             <div className=" flex flex-col  space-y-4 md:space-y-6 text-center md:text-left  md:w-1/2 ">
 
     {/* Heading  */}

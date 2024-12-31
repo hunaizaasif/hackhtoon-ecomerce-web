@@ -15,7 +15,7 @@ export default function Navbar() {
           <Link href="/shop"
              className="hover:text-[#029FAE]">Shop
           </Link>
-          <Link href="/ProductPage"
+          <Link href="/ProductPages"
              className="hover:text-[#029FAE]">Products
           </Link>
           <Link href="/pages"

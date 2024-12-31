@@ -3,8 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { LuShoppingCart } from "react-icons/lu";
+
 // import { MdProductionQuantityLimits } from 'react-icons/md';
-const ProductPages = () => {
+const OurProduct = () => {
   const [activeProduct, setActiveProduct] = useState(null);
 
   const products = [
@@ -35,8 +36,8 @@ const ProductPages = () => {
     {
       id: 5,
       name: "Library Stool Chair",
-      image: "/Image 9.png",
-      price: 20,
+      image: "/Image 5.png",
+      price: 35,
     },
     {
       id: 6,
@@ -53,31 +54,7 @@ const ProductPages = () => {
     {
       id: 8,
       name: "Library Stool Chair",
-      image: "/Image 1.png",
-      price: 20,
-    },
-    {
-      id: 9,
-      name: "Library Stool Chair",
-      image: "/Image 5.png",
-      price: 20,
-    },
-    {
-      id: 10,
-      name: "Library Stool Chair",
-      image: "/Image 2.png",
-      price: 20,
-    },
-    {
-      id: 11,
-      name: "Library Stool Chair",
-      image: "/Image 3.png",
-      price: 20,
-    },
-    {
-      id: 12,
-      name: "Library Stool Chair",
-      image: "/Image 10.png",
+      image: "/Image 8.png",
       price: 20,
     },
   ];
@@ -85,7 +62,7 @@ const ProductPages = () => {
   return (
     <div>
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-6">All Products</h2>
+        <h2 className="text-2xl font-bold mb-6">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product: any) => (
             <div
@@ -106,12 +83,12 @@ const ProductPages = () => {
               <h3 className="text-lg font-sans text-gray-400 hover:text-[#029FAE]">
                 {product.name}
               </h3>
-              <p className="text-gray-500"> ${product.price.toFixed(2)}</p>
-              {/* Add "Add to Cart" button here */}
+              <p className="text-black"> ${product.price}</p>
+              {/*  " Cart" button here */}
               <button className="flex justify-center">
                 {" "}
-                <LuShoppingCart className="hover:text-[#029FAE]  text-xs   md:text-xl  " />
-                Cart
+                <LuShoppingCart className="hover:text-[#029FAE]  text-xs   md:text-xl  " />{" "}
+                cart
               </button>
             </div>
           ))}
@@ -121,4 +98,4 @@ const ProductPages = () => {
   );
 };
 
-export default ProductPages;
+export default OurProduct;

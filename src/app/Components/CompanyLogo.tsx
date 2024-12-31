@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const CompanyLogo = () => {
   return (
-    <div className='container w-full  sticky mb-0 z-0 top-0'>
+    <div className='container w-full  '>
        {/* company logos  */}
          
            <div className="flex items-center justify-center gap-x-12  ml-10 ">
