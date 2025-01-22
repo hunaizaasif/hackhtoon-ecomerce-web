@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link";
 import { LuShoppingCart } from "react-icons/lu";
 
 
@@ -15,13 +16,19 @@ export default function Middlebar(){
        
     
         <div className=" flex justify-center item-center   gap-2">
+       
         {/* Contact and Cart sections */}
+        <Link href="/Cart" className="flex items-center gap-2">
+        <label  tabIndex={0} className="cursor-pointer">
+
+        </label>
         <LuShoppingCart className="text-xs md:text-xl  " />
           <p className="text-xs md:text-xl">Cart</p>
           
              <span className=" py-0 px-1.5 bg-green-900 text-white rounded-full w-5 h-5 items-centerflex items-center  text-xs md:text-sm  ">
               2
             </span>
+            </Link>
             </div>
           </div>
           </div>

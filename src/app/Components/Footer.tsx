@@ -4,6 +4,7 @@ import { FaFacebook,FaTwitter ,FaInstagram ,FaPinterest , FaYoutube ,FaCcPaypal 
 import { SiAmericanexpress , SiVisa } from "react-icons/si";
 import Link from 'next/link';
 
+
 const Footer = () => {
   return (
     <div className='mx-auto w-full  bg-[#FFFFFF] container   '>
@@ -31,9 +32,9 @@ const Footer = () => {
          <ul className='space-y-3 mt-4 text-[#272343] font-normal' >
             <li>Sofa</li>
             <li>Armchair</li>
-            <li>Wing Chair</li>
+            <li> Wing Chair</li>
             <li className='hover:text-[#029FAE] underline'>Desk Chair</li>
-              <li>wooden Chair</li>
+              <li> wooden Chair</li>
             <li>Park Bench</li>
          </ul>
          </div>
@@ -48,7 +49,11 @@ const Footer = () => {
              <div className=''>
           <h3 className='font-medium text-xl mt-6 text-[#9A9CAA] '>Newsletter</h3>
           <input type="email" placeholder="Your email" className="border border-gray-300 p-2 mt-4 rounded-md" />
+          
+          <button className=" bg-[#029FAE] text-white px-4 py-2 mt-4 rounded-md">Subscribe</button>
           <p className="text-[#9A9CAA] mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim.</p>
+       
+        
         </div>
         </div>
         {/* footer bootum */}

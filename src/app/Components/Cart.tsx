@@ -1,8 +1,5 @@
-import React from 'react'
-import CartCard from '../Components/CartCard'
-
-
-
+import React from "react";
+import CartCard from "./CartCard";
 
 const Cart = () => {
   return (
@@ -19,8 +16,10 @@ const Cart = () => {
             quantity={1}
           />
 
+          
           {/*  divider */}
           <div className="divider mt-0 mb-1 ml-9"></div>
+          
           <CartCard
             src={"/Image 5.png"}
             title={"Library Stool Chair"}
@@ -61,13 +60,18 @@ const Cart = () => {
               <p>$198.00</p>
             </div>
             {/*  divider */}
+            <div className="divider mt-0 mb-1"></div>
+            {/* Button cheakout */}
+            <div className="flex items-center justify-center w-full">
+              <button className="rounded-full px-11 py-4 bg-[#029FAE] hover:transparent duration-300 text-[#FFFFFF] hover:text-[#029FAE] scroll-my-20 text-xs font-semibold  tracking-tight hover:shadow-md">
+                Memsber Checkout
+              </button>
+            </div>
           </div>
         </div>
-
-      
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

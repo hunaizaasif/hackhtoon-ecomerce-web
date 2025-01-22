@@ -1,6 +1,7 @@
 import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero (){
     return(
@@ -15,12 +16,14 @@ export default function Hero (){
 Welcome to chairyBest Furniture Collection for your interior.</h2>
 
 
+<Link href="/shop">
 <button 
  className="underline underline-offset-4 hover:font-semibold flex items-center w-[171px] h-[52px] rounded-md gap-[20px] mt-6 py-[14px] px-[24px] text-[#FFFFFF] bg-[#029FAE]">
      shop Now
      <IoIosArrowRoundForward />
      </button>
-    
+     </Link>
+     
      </div>
      
       {/* chair Image  */}
@@ -28,7 +31,7 @@ Welcome to chairyBest Furniture Collection for your interior.</h2>
             <Image src="/Product Image (1).png" alt="chair Image" width="434" height="584"/>
             {/* </div>   */}
             </div>
-   
+            
        
  
   </>       

@@ -17,7 +17,9 @@ const CompanyLogo = () => {
       
       </div>
     </div>
-  )
+    
+    )
+  
 }
 
 export default CompanyLogo
