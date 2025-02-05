@@ -1,72 +1,51 @@
-"use client"
-import React from 'react'
-import Image from 'next/image';
-import { useState } from 'react'
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
 
 
+interface ICategories {
+ _id: string;
+  title: string | undefined;
+  imageUrl: string | undefined;
+ quntity: number;
+ slug: {
+  _type : "slug";
+  current : string;
+   
+};
+}
+ 
+const TOpCategories = async () => {
+  const res = await fetch("https://giaic-hackathon-template-08.vercel.app/api/categories")
 
-
-
-const TOpCategories = () => {
-  const [activeProduct, setActiveProduct] = useState<number | null>(null);
-
-  const products = [
-    {
-      id: 1,
-      name: 'Wing Chair',
-      image: '/Image 5.png',
-      quntity: 3584,
-    },
-    {
-      id: 2,
-      name: 'Wooden Chair',
-      image: '/Image 9.png',
-      quntity: 157,
-    },
-    {
-      id: 3,
-      name: 'Desk Chair',
-      image: '/Image 10.png',
-      quntity: 154,
-    },
-  ];
+const Categories : ICategories[] = await res.json()
+  
 
   return (
     <div className="top-categories">
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-2xl font-bold mb-6">TOp Categories</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className={`product bg-white mx-auto mb-7 overflow-hidden z-10 shadow-md p-4 hover:scale-105 transition-transform duration-300 group relative
-                ${activeProduct === product.id && 'border-2 border-blue-500'}`}
-              onMouseEnter={() => setActiveProduct(product.id)}
-              onMouseLeave={() => setActiveProduct(null)}
-            >
-              <Link href={`/product/${product.id}`}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={350}
-                  height={350}
-                  // objectFit="cover" // Enable for image cropping
-                  className="rounded-xl"
-                />
+          {Categories.map((category) => (
+            <div key={category._id} className="border p-4 rounded-lg shadow-md">
+              <Link href={`/category/${category._id}`}>
+                {category.imageUrl && (
+                  <Image
+                    src={category.imageUrl}
+                    alt={category.title || 'No title available'}
+                    width={600}
+                    height={600}
+                    className="rounded-lg mb-4"
+                  />
+                )}
+                <h3 className="text-lg font-semibold mb-2">{category.title}</h3>
+                <p className="text-gray-700">{category.quntity} Products</p>
               </Link>
-              <div className="product-info bg-[#000000B2] px-2 absolute bottom-4 w-full">
-                <h3 className="text-lg font-sans text-gray-400 hover:text-[#029FAE]">
-                  {product.name}
-                </h3>
-                <p className="text-white"> {product.quntity} Products</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default TOpCategories;
+          );
+        };
+        
+        export default TOpCategories;

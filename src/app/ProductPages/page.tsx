@@ -4,8 +4,10 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Products } from "../../../types/products"; // Assuming Product is the correct type
-import { allproducts } from "@/sanity/lib/queries";
-import { LuShoppingCart } from "react-icons/lu";
+import { four} from "@/sanity/lib/queries";
+import Link from "next/link";
+
+
 
 const ProductPages = () => {
   const [products, setProducts] = useState<Products[]>([]);
@@ -13,7 +15,7 @@ const ProductPages = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const fetchedProducts: Products[] = await client.fetch(allproducts);
+        const fetchedProducts: Products[] = await client.fetch(four);
         setProducts(fetchedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -33,6 +35,7 @@ const ProductPages = () => {
             key={product._id}
             className="border rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300"
           >
+          <Link href={`/product/${product.slug?.current}`}>
             {product.image && ( // Assuming images is the correct field name
               <Image
                 src={urlFor(product.image).url()}
@@ -45,19 +48,25 @@ const ProductPages = () => {
             <h2 className="text-lg font-sans text-[#029FAE] mt-4">
               {product.title}
             </h2>
-            <p>{product.price ? `$${product.price}` : "price not avaliable"}</p>
-            {/*  " Cart" button here */}
+            {/* <p>{product.price ? `$${product.price}` : "price not avaliable"}</p> */}
+            
+               {/* " Cart" button here
             <button className="flex  ">
               <LuShoppingCart className="hover:text-white hover:bg-[#029FAE]  text-xs   md:text-xl " />
-            </button>
-          </div>
+            </button>*/}
+             </Link>   
+          </div> 
+           
         ))}
+        
       </div>
+     
     </div>
+
   );
 };
-
 export default ProductPages;
+
 
 // // import React from "react";
 // import { useState , useEffect } from "react";

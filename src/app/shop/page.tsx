@@ -1,122 +1,123 @@
-// import React from 'react';
+// "use client"
+// import Link from 'next/link';
+// import ShopLine from '../components/shop';
+// import Field from "@/app/products"
+// import Header from '../components/header';
+// import Page from '../components/Ourpage';
+import { client } from '@/sanity/lib/client';
 
-// import Image from 'next/image';
-// // import Link from 'next/link';
-// // import ShopLine from '../components/shop';
-// // import Field from "@/app/products"
-// // import Header from '../components/header';
-// // import Page from '../components/Ourpage';
-// import { client } from '@/sanity/lib/client';
-// import { urlFor } from '@/sanity/lib/image';
-// import Hero from '../Components/Hero';
-// import { products } from '../../../types/product';
+import { urlFor } from '@/sanity/lib/image';
+import Hero from '../Components/Hero';
+import Image from 'next/image';
+import FeatureProduct from '../Components/FeatureProduct';
+
 // import { allProducts } from '@/sanity/lib/quries';
 
-// // interface Product {
-// //   category: string;
-// //   id: string;
-// //   price: number;
-// //   description: string;
-// //   stockLevel: number;
-// //   imagePath: string;
-// //   discountPercentage: number;
-// //   isFeaturedProduct: number;
-// //   name: string;
-// //   image: any;
-// // }
+interface Product {
+  category: string;
+  id: string;
+  price: number;
+  description: string;
+  imagePath: string;
+  discountPercentage: number;
+  isFeaturedProduct: number;
+  name: string;
+  image: any;
+}
 
-// // Fetch products from Sanity
-// async function fetchProducts(): Promise<products[]> {
-//   const query = `*[_type == "product"]{
-//     category,
-//     _id,
-//     price,
-//     description,
-//     imagePath,
-//     discountPercentage,
-//     isFeaturedProduct,
-//     name,
-//     "image":image.asset._ref
-//   }`;
-//   const products = await client.fetch(query);
-//   return products;
-// }
+// Fetch products from Sanity
 
-// const Shop = async () => {
-//   const products = await fetchProducts();
+async function fetchProducts(): Promise<Product[]> {
+  const query = `*[_type == "product"]{
+    category,
+    _id,
+    price,
+    description,
+    imagePath,
+    discountPercentage,
+    isFeaturedProduct,
+    name,
+    "image": image.asset._ref
+  }`;
+  const products = await client.fetch(query);
+  return products;
+}
 
-//   return (
-//     <div className="bg-gray-50">
-//       <div className="max-w-screen-2xl container mx-auto pb-8 px-4">
-//         {/* Header Section */}
-//          <div className="bg-[#faf4f4]">
-//           <Hero />
-//         </div> 
+const Shop = async () => {
+  const products = await fetchProducts();
 
-//         {/* Banner Section */}
-//         {/* <div className="relative text-black">
-//           <Image
-//             src="/Product Image (1).png" // Replace with the correct image file path
-//             alt="Shop Banner"
-//             height={400}
-//             width={1600}
-//             className="w-full h-40 md:h-auto object-cover"
-//           />
-//           <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl md:text-5xl font-semibold">
-//             Shop
-//           </h1>
-//           {/* Breadcrumb Section */}
-//           {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-14">
-//             <p className="text-gray-700 text-xs md:text-xl flex items-center">
-//               <Link href="/" className="font-bold hover:underline">
-//                 Home
-//               </Link>
-//               <span className="font-bold mx-2">{'>'}</span>
-//               <Link href="/shop" className="hover:underline">
-//                 Shop
-//               </Link>
-//             </p> */}
-//           {/* </div>  */}
-//         {/* </div>  */}
+  return (
+    <div className="bg-gray-50">
+      <div className="max-w-screen-2xl container mx-auto pb-8 px-4">
+        {/* Header Section */}
+         <div className="bg-[#faf4f4]">
+          <Hero />
+        </div> 
 
-//         {/* Shop Line Section */}
-//         {/* <div className="my-6">
-//           <ShopLine />
-//         </div> */}
+        {/* Banner Section */}
+        {/* <div className="relative text-black">
+          <Image
+            src="/Product Image (1).png" // Replace with the correct image file path
+            alt="Shop Banner"
+            height={400}
+            width={1600}
+            className="w-full h-40 md:h-auto object-cover"
+          />
+          <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl md:text-5xl font-semibold">
+            Shop
+          </h1>
+          {/* Breadcrumb Section */}
+          {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-14">
+            <p className="text-gray-700 text-xs md:text-xl flex items-center">
+              <Link href="/" className="font-bold hover:underline">
+                Home
+              </Link>
+              <span className="font-bold mx-2">{'>'}</span>
+              <Link href="/shop" className="hover:underline">
+                Shop
+              </Link>
+            </p> */}
+          {/* </div>  */}
+        {/* </div>  */}
 
-//         {/* Product List */}
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//           {products.map((product: products, index) => (
-//             <div
-//               key={index}
-//               className="flex flex-col items-center bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105"
-//             >
-//               {/* Product Image */}
-//               <Image
-//                 src={urlFor(products.image).url()} // Convert ImageUrlBuilder to string URL
-//                 alt={product.name}
-//                 height={300}
-//                 width={300}
-//                 className="h-[250px] w-full object-cover"
-//               />
-//               <div className="p-4 text-center">
-//                 {/* Product Name */}
-//                 <p className="text-lg font-medium text-gray-800">{product.name}</p>
-//                 {/* Product Price */}
-//                 <h3 className="text-xl font-semibold text-gray-900 mt-2">${product.price}</h3>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
+        {/* Shop Line Section */}
+        {/* <div className="my-6">
+          <ShopLine />
+        </div> */}
 
-//         {/* Additional Sections */}
-//           <div className="justify-center mx-auto">
-//           {/* <Page />  */}
-//         </div>
-//         {/* <Field /> */}
-//       </div> 
-//     </div>
-//   );
-// };
+        {/* Product List */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {products.map((product: Product, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105"
+            >
+              {/* Product Image */}
+              <Image
+                src={urlFor(product.image).url()} // Convert ImageUrlBuilder to string URL
+                alt={product.name}
+                height={300}
+                width={300}
+                className="h-[250px] w-full object-cover"
+              />
+              <div className="p-4 text-center">
+                {/* Product Name */}
+                <p className="text-lg font-medium text-gray-800">{product.name}</p>
+                {/* Product Price */}
+                <h3 className="text-xl font-semibold text-gray-900 mt-2">${product.price}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
 
-// export default Shop;
+        {/* Additional Sections */}
+          <div className="justify-center mx-auto">
+          <FeatureProduct/>
+        </div>
+        {/* <Field /> */}
+      </div> 
+    </div>
+  );
+};
+
+export default Shop;

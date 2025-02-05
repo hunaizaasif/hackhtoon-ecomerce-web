@@ -1,11 +1,15 @@
 
 
+
+
 export interface Products {
-    _id : string;
-    title : string;
-   _type : "products";
+  _id:  string;
+  title : string;
+    tags: string;
+    products : string;
+  _type : "products";
     image? : {
-        asset : {
+     asset : {
             _ref : string;
             _type : "image";
          }
@@ -18,6 +22,11 @@ export interface Products {
     
     description? : Text;
     inventory : number;
+    slug: {
+       _type : "slug";
+       current : string;
+        
+    };
     
 
 }
