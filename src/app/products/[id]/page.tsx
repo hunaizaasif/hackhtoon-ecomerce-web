@@ -1,12 +1,11 @@
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
-import Hero from '../Components/Hero';
 import Image from 'next/image';
-import FeatureProduct from '../Components/FeatureProduct';
 
-// import { allProducts } from '@/sanity/lib/quries';
 
 interface Product {
+  title: string
+  badge: any;
   category: string;
   id: string;
   price: number;
@@ -18,10 +17,10 @@ interface Product {
   image: any;
 }
 
-// Fetch products from Sanity
+
 
 async function fetchProducts(): Promise<Product[]> {
-  const query = `*[_type == "product"]{
+  const query = `*[_type == "products"]{
     category,
     _id,
     price,
@@ -36,18 +35,14 @@ async function fetchProducts(): Promise<Product[]> {
   return products;
 }
 
-const Shop = async () => {
+const products = async () => {
   const products = await fetchProducts();
 
   return (
-    <div className="bg-gray-50">
-      <div className="max-w-screen-2xl container mx-auto pb-8 px-4">
+    <div className="max-w-screen-2xl container mx-auto pb-8 px-4">
         {/* Header Section */}
          <div className="bg-[#faf4f4]">
-          <Hero />
-        </div> 
-
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product: Product, index) => (
             <div
               key={index}
@@ -63,22 +58,36 @@ const Shop = async () => {
               />
               <div className="p-4 text-center">
                 {/* Product Name */}
-                <p className="text-lg font-medium text-gray-800">{product.name}</p>
+                <p className="text-lg font-medium text-gray-800">{product.title}</p>
                 {/* Product Price */}
                 <h3 className="text-xl font-semibold text-gray-900 mt-2">${product.price}</h3>
-              </div>
+                </div>
             </div>
           ))}
         </div>
-
-        {/* Additional Sections */}
-          <div className="justify-center mx-auto">
-          <FeatureProduct/>
-        </div>
-        {/* <Field /> */}
-      </div> 
+        </div> 
     </div>
   );
 };
 
-export default Shop;
+export default products;
+
+
+
+
+      
+        
+        
+        
+
+    
+
+  
+            
+
+ 
+  
+          
+      
+      
+      

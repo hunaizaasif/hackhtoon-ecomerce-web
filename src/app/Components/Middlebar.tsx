@@ -22,11 +22,11 @@ export default function Middlebar(){
         <label  tabIndex={0} className="cursor-pointer">
 
         </label>
-        <LuShoppingCart className="text-xs md:text-xl  " />
-          <p className="text-xs md:text-xl">Cart</p>
+        <LuShoppingCart className="text-xs md:text-xl hover:text-[#029FAE]  " />
+          <p className="text-xs md:text-xl hover:text-[#029FAE] ">Cart</p>
           
-             <span className=" py-0 px-1.5 bg-green-900 text-white rounded-full w-5 h-5 items-centerflex items-center  text-xs md:text-sm  ">
-              2
+             <span className=" py-0 px-1.5 bg-[#029FAE] text-white rounded-full w-5 h-5 items-centerflex items-center  text-xs md:text-sm  ">
+              0
             </span>
             </Link>
             </div>

@@ -10,6 +10,8 @@
     "migrate": "node scripts/migrate.mjs"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.2",
+    "@sanity/client": "^6.28.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.70.0",
     "class-variance-authority": "^0.7.1",
@@ -17,7 +19,7 @@
     "dotenv": "^16.4.7",
     "lucide-react": "^0.474.0",
     "next": "14.2.2",
-    "next-sanity": "^9.8.38",
+    "next-sanity": "^9.8.56",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
@@ -29,8 +31,9 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/stylis": "^4.2.7",
     "daisyui": "^4.12.23",
     "eslint": "^8",
     "eslint-config-next": "14.2.2",

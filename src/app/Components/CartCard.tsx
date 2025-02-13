@@ -1,6 +1,9 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 import { FaTrash, FaRegHeart } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
+
 const CartCard = ({
   src,
   title,
@@ -39,29 +42,45 @@ const CartCard = ({
           </p>
           <div className="flex justify-between items-center w-full gap-4">
             {/* size */}
-            <p className="mt-2  text-xs font-normal text-[#BDBDBD]">
+            <p className="mt-2 mb-2 text-xs font-normal text-[#BDBDBD]">
               size:&nbsp;<span>{size}</span>
             </p>
-
             {/* quantity*/}
-            <p className="mt-2 mb-2 text-xs font-normal text-[#BDBDBD]">
+             <p className="mt-2 mb-2 text-xs font-normal text-[#BDBDBD]">
               Quantity:&nbsp;{quantity}
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex items-center mt-2">
-            <FaRegHeart className="text-[#000000] ml-2 1" />
-            <FaTrash className="text-[#000000] ml-2 " />
+            </p> 
+            {/* Quantity*/}
+            <div className="mt-2 flex items-center">
+         <Button className="group-hover:bg-white bg-[#029FAE] text-white w-fit h-fit rounded-lg text-xs duration-300"> 
+               <FaMinus className="h-2 w-2 group-hover:bg-white"/>
+               </Button>
+              <div className="mr-2 ml-2 scroll-m-2 text-sm- font-semibold tracking-tight">
+                1
+                </div> 
+        
+         <Button className="group-hover:bg-white bg-[#029FAE] text-white w-fit h-fit rounded-lg text-xs duration-300"> 
+               <FaPlus className="h-2 w-2 group-hover:bg-white"/>
+               
+         </Button>
+            </div>
+       </div>
+       {/* price */}
+      <div className="flex flex-col mt-2 gap-2">
+        <h2 className="text-lg font-normal leading-none line-clamp-1">
+          MRP:&nbsp;${price}
+        </h2>
+      </div>
+          {/* Delet and Like */}
+          <div className="flex items-center mt-2 justify-around">
+            <FaRegHeart className="mt-2 mb-2 text-base font-semibold leading-none line-clamp-1 text-red-600 cursor-pointer" />
+            
+          
+            <FaTrash className="mt-2 mb-2 text-base font-semibold leading-none line-clamp-1 text-red-600 cursor-pointer" />
           </div>
         </div>
       </div>
 
-      {/* price */}
-      <div className="flex flex-col items-end gap-5">
-        <h2 className="text-lg font-semibold leading-none line-clamp-1">
-          MRP:&nbsp;${price}
-        </h2>
-      </div>
+      
     </div>
   );
 };

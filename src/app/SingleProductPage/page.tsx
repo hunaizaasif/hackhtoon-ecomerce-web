@@ -1,7 +1,7 @@
-
 import React from 'react'
 import Image from 'next/image'
-import FeatureProduct from './FeatureProduct';
+import FeatureProduct from '../Components/FeatureProduct';
+
 
 const SingleProductPage = () => {
   return (

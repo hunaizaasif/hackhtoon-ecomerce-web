@@ -60,7 +60,7 @@ export default async function Gallery() {
             <h2 className="text-4xl font-bold mb-6">Explore Modern and Popular Styles</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {galleryData && galleryData.map((gallery) => (
-                    <Link key={gallery._id} href={`/product/${gallery._id}`}>
+                    <Link key={gallery._id} href={`/products/${gallery._id}`}>
                         <GalleryItem gallery={gallery} />
                     </Link>
                 ))}

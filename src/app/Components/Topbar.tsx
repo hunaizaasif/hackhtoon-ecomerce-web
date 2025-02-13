@@ -12,14 +12,14 @@ function Topbar() {
 
         <nav className="flex md:flex flex-row md:space-x-4 "> 
         <div className="flex items-center">
-         <p className="hover:text-blue-500">Eng 
+         <p className="hover:text-[#029FAE] ">Eng 
           </p>
           <RiArrowDropDownLine className='text-2xl'/>
           </div>
           <Link href="/FAQ"
-             className="hover:text-green-800 px-2">Faqs
+             className="hover:text-[#029FAE]  px-2">Faqs
           </Link>
-          <Link href="/" className="flex items-center space-x-2 hover:text-blue-500">< BsExclamationCircle />
+          <Link href="/" className="flex items-center space-x-2 hover:text-[#029FAE] ">< BsExclamationCircle />
        <span > Need Help
      </span>
      </Link> 

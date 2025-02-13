@@ -15,10 +15,10 @@ export default function Navbar() {
           <Link href="/shop"
              className="hover:text-[#029FAE]">Shop
           </Link>
-          <Link href="/ProductPages"
+          <Link href="/ProductPage"
              className="hover:text-[#029FAE]">Products
           </Link>
-          <Link href="/SingleProduct"
+          <Link href="/SingleProductPage"
              className="hover:text-[#029FAE]">Pages
           </Link>
           <Link href="/AboutUs"
@@ -26,10 +26,10 @@ export default function Navbar() {
           </Link>
         </nav>
         
-        {/* Contact and Cart sections */}
+        {/* Contact sections */}
         <div className="flex space-x-4">
           <Link href="/ContectUs" className="text-sm hover:text-[#029FAE] ">Contact: (808)-555-0111</Link>
-          
+        
         </div>
       </div>
     </header>

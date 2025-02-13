@@ -10,9 +10,9 @@ import Link from 'next/link';
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-4xl font-bold mb-6">Our Product</h2>
+      <h2 className="text-4xl font-bold mb-6">ALL Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {product.slice(1,9).map((product)=> (
+      {product.slice(1,13).map((product)=> (
         <div key={product._id} className="bg-white rounded-lg shadow-md p-4 hover:scale-105 transition-transform duration-300">
           <Link href={`/products/${product._id}`}>
           <p className="text-gray-500 mb-4 ">{product.badge}</p>

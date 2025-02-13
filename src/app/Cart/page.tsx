@@ -1,5 +1,7 @@
 import React from 'react'
 import CartCard from '../Components/CartCard'
+import { Button } from '@/components/ui/button'
+
 
 
 
@@ -61,6 +63,15 @@ const Cart = () => {
               <p>$198.00</p>
             </div>
             {/*  divider */}
+            <div className="divider mt-0 mb-1"></div>
+              {/* Checkout Button */}
+            <div className='flex items-center justify-center w-full'>
+              <Button className=' rounded-full px-11 py-4 bg-[#029FAE]  text-[#FFFFFF] hover:text-[#029FAE] scroll-my-20 text-xs font-semibold  tracking-tight hover:shadow-md'>
+              Checkout
+              </Button>
+
+            </div>
+            
           </div>
         </div>
 
